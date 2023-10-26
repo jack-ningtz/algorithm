@@ -18,7 +18,7 @@ function bubble_sort(arr:number[]):number[]
 function select_sort(arr:number[]) : number[]
 {
 	let minindex:number;
-    for(let i = 0; i < arr.length; i++)
+        for(let i = 0; i < arr.length; i++)
 	{
 		minindex = i;
 		for(let a = i + 1; a < arr.length; a++)
@@ -37,7 +37,7 @@ function select_sort(arr:number[]) : number[]
 function insert_sort(arr:number[]) : number[]
 {
 	let current:number;
-    for(let i = 1; i < arr.length; i++)
+        for(let i = 1; i < arr.length; i++)
 	{
         let preIndex = i - 1;
 		current = arr[i];
@@ -113,13 +113,13 @@ function merge_sort_up2down(arr:number[]) : any //自上而下递归方式
 
 function merge_sort_down2up(arr:number[]) : any //自下而上
 {
-	let _arr = arr;
+    let _arr = arr;
     let result : number[];
     for(let n = 1; n <= arr.length; n*=2) // n 相邻子串长度
 	{
-		let i = 0;
-		result = [];
-        for(i ; i + 2*n  <= arr.length; i+=(2*n))
+	    let i = 0;
+	    result = [];
+            for(i ; i + 2*n  <= arr.length; i+=(2*n))
 		{			
 			let left = _arr.slice(i, i + n);
 			let right = _arr.slice(i + n, i + 2*n);	 
@@ -127,7 +127,7 @@ function merge_sort_down2up(arr:number[]) : any //自下而上
 			_arr.splice(i,result.length,...result);		      		
 		}
 		// 剩余子串排序
-        if(i + n < arr.length)
+             if(i + n < arr.length)
 		{
 			let left = _arr.slice(0,i+n);
 			let right = _arr.slice(i+n, arr.length);
@@ -161,7 +161,7 @@ function quick_sort(arr:number[],left:number, right:number) : number[]
 		// let temp = arr[partionIndex];
 		// arr[partionIndex] = arr[left];
 		// arr[left] = temp;
-        arr[left] = arr[partionIndex];
+                arr[left] = arr[partionIndex];
 		arr[partionIndex] = pivot;
 
 		quick_sort(arr, left ,partionIndex - 1);
@@ -280,16 +280,16 @@ function count_sort(arr:number[]) : number[]
 	let max = Math.max(...arr); 
 	let countarr:number[] = Array(max + 1);
     //初始化数组
-    for(let i = 0; i < countarr.length; i++)
+        for(let i = 0; i < countarr.length; i++)
 	{
 		countarr[i] = 0;
 	}
-    for(let i of arr)
+        for(let i of arr)
 	{
 		countarr[i] += 1;
 	}
 	let new_arr:number[] = [];
-    for(let i = 0; i < countarr.length; i++)
+        for(let i = 0; i < countarr.length; i++)
 	{
 		while(countarr[i] > 0)
 		{
@@ -305,7 +305,7 @@ function bucket_sort(arr:number[]): number[]
 	if(arr.length < 2) return arr;
 	let min = Math.min(...arr);
 	let max = Math.max(...arr);
-    let bucketSize = 5; 
+        let bucketSize = 5; 
 	let bucketCount = Math.floor((max - min)/ bucketSize) + 1;
 	let buckets = new Array(bucketCount);
 	for(let i = 0; i < buckets.length; i++)
@@ -353,16 +353,16 @@ function radix_sort(arr:number[]) : number[]
 		 let pos = 0;
 		 for(let i = 0; i < buckets.length; i++)
 		 {
-            if(buckets[i].length > 0)
+                 if(buckets[i].length > 0)
 			{
 				let value ;
-                while((value = buckets[i].shift()) != null)
+                                while((value = buckets[i].shift()) != null)
 				{
 					arr[pos++] = value;
 				}
 			}
 		 }
-    }
+        }
 	return arr;
 }
 console.log(radix_sort([12,36,4,2,18,10,2,3,0,2]))
